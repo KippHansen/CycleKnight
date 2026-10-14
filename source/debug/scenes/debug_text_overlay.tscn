@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://qdycbpj27xp0"]
+
+[ext_resource type="Script" uid="uid://dti2kqp5nrqoi" path="res://source/debug/scenes/debug_overlay.gd" id="1_6ranb"]
+[ext_resource type="LabelSettings" uid="uid://sfyuhejr7mt0" path="res://source/debug/rescources/debug_label_setting.tres" id="2_1elde"]
+
+[node name="debug_text_overlay" type="Control" unique_id=1135499836]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ranb")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1993328379]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1085444114]
+layout_mode = 2
+
+[node name="fps_label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1143529233]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("2_1elde")
+
+[node name="version_info" type="Label" parent="MarginContainer/VBoxContainer" unique_id=755243448]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = ExtResource("2_1elde")
+
+[node name="debug_info" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1007858172]
+layout_mode = 2
+label_settings = ExtResource("2_1elde")
