@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cxwnt5qt5sncs"]
+
+[node name="the_cycle_knight" type="CharacterBody2D" unique_id=528179798]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=928311996]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442745871]
