@@ -1,7 +1,86 @@
 [gd_scene format=3 uid="uid://cxwnt5qt5sncs"]
 
-[node name="the_cycle_knight" type="CharacterBody2D" unique_id=528179798]
+[ext_resource type="Texture2D" uid="uid://cuyy2kvat2k4h" path="res://assets/sprites/knight_cloaked-sheet.png" id="1_bhnvy"]
+[ext_resource type="Script" uid="uid://dbepo2niiiovt" path="res://source/gameplay/player/player.gd" id="1_h5y72"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5y72"]
+atlas = ExtResource("1_bhnvy")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxngp"]
+atlas = ExtResource("1_bhnvy")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5ixa"]
+atlas = ExtResource("1_bhnvy")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_008ae"]
+atlas = ExtResource("1_bhnvy")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a66ac"]
+atlas = ExtResource("1_bhnvy")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv317"]
+atlas = ExtResource("1_bhnvy")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8fx6"]
+atlas = ExtResource("1_bhnvy")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gcdm"]
+atlas = ExtResource("1_bhnvy")
+region = Rect2(96, 48, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5y72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxngp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5ixa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_008ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a66ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv317")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8fx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gcdm")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ie23"]
+size = Vector2(17, 10)
+
+[node name="player" type="CharacterBody2D" unique_id=528179798]
+script = ExtResource("1_h5y72")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=928311996]
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"idle"
+frame_progress = 0.7592693
+offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442745871]
+shape = SubResource("RectangleShape2D_6ie23")
+
+[node name="player_camera" type="Camera2D" parent="." unique_id=505168659]
+zoom = Vector2(1.5, 1.5)

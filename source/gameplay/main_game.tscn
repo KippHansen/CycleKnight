@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cgd5bw6ub0xan"]
 
+[ext_resource type="PackedScene" uid="uid://cxuhbaq2acxx5" path="res://source/gameplay/movement/GridMovement.tscn" id="1_2ffcw"]
 [ext_resource type="PackedScene" uid="uid://qdycbpj27xp0" path="res://source/debug/scenes/debug_text_overlay.tscn" id="1_uu2tk"]
 
 [node name="main_game" type="Node" unique_id=1922920480]
@@ -13,6 +14,8 @@ process_mode = 1
 [node name="level_root" type="Node2D" parent="world" unique_id=1283305615]
 
 [node name="entity_root" type="Node2D" parent="world" unique_id=1816433925]
+
+[node name="GridMovement" parent="world/entity_root" unique_id=6163127 instance=ExtResource("1_2ffcw")]
 
 [node name="effect_root" type="Node2D" parent="world" unique_id=593535135]
 

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cxuhbaq2acxx5"]
+
+[ext_resource type="Script" uid="uid://dbktbpybb5yod" path="res://source/gameplay/movement/GridMovement.gd" id="1_g854b"]
+
+[node name="GridMovement" type="Node2D" unique_id=6163127]
+script = ExtResource("1_g854b")
