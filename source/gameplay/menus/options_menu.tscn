@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://2hadwrsvro52"]
+
+[ext_resource type="Script" uid="uid://l70sf2pm2k7k" path="res://source/rooms/proto/back_button.gd" id="1_dcgdi"]
+
+[node name="OptionsMenu" type="CanvasLayer" unique_id=2008359551]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1619101946]
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 608.0
+offset_bottom = 344.0
+color = Color(0.13840085, 0.089857735, 0.019849675, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1644102521]
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 584.0
+offset_bottom = 320.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=506671247]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=254106071]
+layout_mode = 2
+text = "Options"
+
+[node name="back_button" type="Button" parent="." unique_id=948377363]
+offset_left = 64.0
+offset_top = 288.0
+offset_right = 128.0
+offset_bottom = 319.0
+text = "Back"
+script = ExtResource("1_dcgdi")

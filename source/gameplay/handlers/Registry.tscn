@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dreii77a0d65d"]
+
+[ext_resource type="Script" uid="uid://djsme14g7tfc4" path="res://source/gameplay/handlers/Registry.gd" id="1_qhwvf"]
+
+[node name="Registry" type="Node" unique_id=403722399]
+script = ExtResource("1_qhwvf")

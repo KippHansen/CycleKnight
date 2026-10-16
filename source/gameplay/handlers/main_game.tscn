@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cgd5bw6ub0xan"]
+
+[ext_resource type="Script" uid="uid://1oc4ofsw3etn" path="res://source/gameplay/handlers/main_game.gd" id="1_j8d1r"]
+[ext_resource type="PackedScene" uid="uid://dreii77a0d65d" path="res://source/gameplay/handlers/Registry.tscn" id="2_17hxp"]
+[ext_resource type="Script" uid="uid://b25e5e8nunvim" path="res://source/gameplay/handlers/world.gd" id="3_17hxp"]
+[ext_resource type="PackedScene" uid="uid://cxuhbaq2acxx5" path="res://source/gameplay/movement/GridMovement.tscn" id="3_nfv26"]
+[ext_resource type="PackedScene" uid="uid://qdycbpj27xp0" path="res://source/debug/scenes/debug_text_overlay.tscn" id="4_vbmyx"]
+
+[node name="main_game" type="Node" unique_id=1922920480 groups=["main_game"]]
+process_mode = 3
+script = ExtResource("1_j8d1r")
+
+[node name="system" type="Node" parent="." unique_id=1443363067]
+
+[node name="Registry" parent="system" unique_id=403722399 instance=ExtResource("2_17hxp")]
+
+[node name="world" type="Node2D" parent="." unique_id=1237421199]
+process_mode = 1
+script = ExtResource("3_17hxp")
+
+[node name="level_root" type="Node2D" parent="world" unique_id=1283305615]
+unique_name_in_owner = true
+
+[node name="entity_root" type="Node2D" parent="world" unique_id=1816433925]
+unique_name_in_owner = true
+
+[node name="GridMovement" parent="world/entity_root" unique_id=6163127 instance=ExtResource("3_nfv26")]
+
+[node name="effect_root" type="Node2D" parent="world" unique_id=593535135]
+unique_name_in_owner = true
+
+[node name="hud_layer" type="CanvasLayer" parent="." unique_id=1716904572]
+process_mode = 1
+layer = 10
+
+[node name="hud_root" type="Control" parent="hud_layer" unique_id=1436020578]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="pause_layer" type="CanvasLayer" parent="." unique_id=447205391]
+process_mode = 2
+layer = 20
+
+[node name="pause_root" type="Control" parent="pause_layer" unique_id=947955662]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="transition_layer" type="CanvasLayer" parent="." unique_id=984546097]
+process_mode = 3
+layer = 100
+
+[node name="transition_root" type="Control" parent="transition_layer" unique_id=1830247126]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="debug_layer" type="CanvasLayer" parent="." unique_id=411359240]
+process_mode = 3
+layer = 128
+
+[node name="debug_root" type="Control" parent="debug_layer" unique_id=547369838]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="debug_text_overlay" parent="debug_layer/debug_root" unique_id=1135499836 instance=ExtResource("4_vbmyx")]
+layout_mode = 1

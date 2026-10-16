@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dlg8v2nrhioy3"]
+
+[ext_resource type="Script" uid="uid://e2lr4fbs2h7d" path="res://source/gameplay/objects/quit_game.gd" id="1_hvorl"]
+
+[node name="quit_game" type="Button" unique_id=964863979]
+text = "Quit"
+script = ExtResource("1_hvorl")

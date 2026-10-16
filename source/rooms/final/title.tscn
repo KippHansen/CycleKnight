@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dl0xi3kck6l0u"]
 
+[ext_resource type="PackedScene" uid="uid://dlg8v2nrhioy3" path="res://source/gameplay/objects/quit_game.tscn" id="1_i2dc8"]
+
 [node name="title" type="Node2D" unique_id=1039050851]
 
 [node name="background" type="ColorRect" parent="." unique_id=1472834071]
@@ -35,9 +37,8 @@ text = "Load Game"
 layout_mode = 2
 text = "Settings"
 
-[node name="quit_game" type="Button" parent="MarginContainer/HBoxContainer/CenterContainer/VBoxContainer" unique_id=1978690215]
+[node name="quit_game" parent="MarginContainer/HBoxContainer/CenterContainer/VBoxContainer" unique_id=964863979 instance=ExtResource("1_i2dc8")]
 layout_mode = 2
-text = "Quit"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=557782102]
 layout_mode = 2
