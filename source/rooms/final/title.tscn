@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dl0xi3kck6l0u"]
 
 [ext_resource type="PackedScene" uid="uid://dlg8v2nrhioy3" path="res://source/gameplay/objects/quit_game.tscn" id="1_i2dc8"]
+[ext_resource type="Script" uid="uid://b1fblerm35yp5" path="res://source/gameplay/objects/options_button.gd" id="1_r0u52"]
 
 [node name="title" type="Node2D" unique_id=1039050851]
 
@@ -9,42 +10,38 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.19014722, 0.32961297, 0.34386542, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=486572799]
-offset_left = 40.0
-offset_top = 32.0
-offset_right = 600.0
-offset_bottom = 320.0
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1816617818]
+offset_left = 256.0
+offset_top = 80.0
+offset_right = 384.0
+offset_bottom = 336.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2085152410]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1509717382]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="title_icon" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1819239457]
+layout_mode = 2
+text = "Cycle Knight"
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer" unique_id=414480111]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer" unique_id=1970166655]
+[node name="new_game" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1769035708]
 layout_mode = 2
+text = "New Game"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/CenterContainer" unique_id=793811352]
-layout_mode = 2
-
-[node name="new_game" type="Button" parent="MarginContainer/HBoxContainer/CenterContainer/VBoxContainer" unique_id=1083778905]
-layout_mode = 2
-text = "New Game
-"
-
-[node name="load_game" type="Button" parent="MarginContainer/HBoxContainer/CenterContainer/VBoxContainer" unique_id=1731226645]
+[node name="load_game" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1032336918]
 layout_mode = 2
 text = "Load Game"
 
-[node name="settings" type="Button" parent="MarginContainer/HBoxContainer/CenterContainer/VBoxContainer" unique_id=540444934]
+[node name="options" type="Button" parent="CenterContainer/VBoxContainer" unique_id=854643186]
 layout_mode = 2
-text = "Settings"
+text = "Options"
+script = ExtResource("1_r0u52")
 
-[node name="quit_game" parent="MarginContainer/HBoxContainer/CenterContainer/VBoxContainer" unique_id=964863979 instance=ExtResource("1_i2dc8")]
+[node name="quit_game" parent="CenterContainer/VBoxContainer" unique_id=964863979 instance=ExtResource("1_i2dc8")]
 layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=557782102]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1493823360]
-layout_mode = 2
-text = "Cycle Knight"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1242098734]

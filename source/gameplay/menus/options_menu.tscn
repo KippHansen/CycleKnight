@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://2hadwrsvro52"]
 
-[ext_resource type="Script" uid="uid://l70sf2pm2k7k" path="res://source/rooms/proto/back_button.gd" id="1_dcgdi"]
+[ext_resource type="Script" uid="uid://8mg1orc84pai" path="res://source/gameplay/menus/options_menu.gd" id="1_tu08f"]
 
 [node name="OptionsMenu" type="CanvasLayer" unique_id=2008359551]
+process_mode = 3
+script = ExtResource("1_tu08f")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1619101946]
 offset_left = 40.0
 offset_top = 32.0
 offset_right = 608.0
 offset_bottom = 344.0
+mouse_filter = 2
 color = Color(0.13840085, 0.089857735, 0.019849675, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1644102521]
@@ -30,4 +33,5 @@ offset_top = 288.0
 offset_right = 128.0
 offset_bottom = 319.0
 text = "Back"
-script = ExtResource("1_dcgdi")
+
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

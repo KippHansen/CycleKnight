@@ -13,10 +13,12 @@ extends Node
 #Canvas
 @onready var hud_layer: CanvasLayer = $hud_layer
 @onready var pause_layer: CanvasLayer = $pause_layer
+@onready var pause_root: Control = %pause_root
 @onready var transition_layer: CanvasLayer = $transition_layer
 @onready var debug_layer: CanvasLayer = $debug_layer
 @onready var registry: Registry = $system/Registry
 @onready var world: Node2D = $world
+
 
 
 func _ready() -> void:
@@ -30,7 +32,7 @@ func open_menu(menu_id: String) -> Node:
 	if scene == null:
 		return null
 	var menu := scene.instantiate()
-	$pause_layer.add_child(menu)
+	pause_root.add_child(menu)
 	menu.closed.connect(menu.queue_free)
 	return menu
 	
