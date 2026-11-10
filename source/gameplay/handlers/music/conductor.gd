@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	if current > _last_beat:
 		_last_beat = current
 		beat.emit(current)
-	
+
 
 func get_song_position() -> float:
 	return player.get_playback_position() \
@@ -74,9 +74,18 @@ func load_song(path: String) -> bool:
 			return false
 	return player.stream != null
 
-func use_level(level: LevelConfig) -> void:
+func use_level(level: LevelConfig, force := false) -> void:
+	var same_level := not force \
+		and player.playing \
+		and current_level != null \
+		and current_level.level_id == level.level_id
+	
 	current_level = level
 	beats_per_measure = level.beats_per_measure
+	
+	if same_level:
+		return
+	
 	var saved: Dictionary = custom_songs.get(level.level_id, {})
 	if level.allow_custom_song and not saved.is_empty() and load_song(saved["path"]):
 		original_bpm = saved["bpm"]
@@ -84,7 +93,7 @@ func use_level(level: LevelConfig) -> void:
 	else:
 		player.stream = level.game_song
 		original_bpm = level.game_bpm
-		first_beat_offset = 0.0
+		first_beat_offset = level.first_beat_offset
 	speed = 1.0
 	player.pitch_scale = 1.0
 	_last_beat = -1
@@ -110,7 +119,7 @@ func set_custom_song(path: String, bpm: float, offset := 0.0) -> void:
 		return
 	custom_songs[current_level.level_id] = {"path": path, "bpm": bpm, "offset": offset}
 	save_custom_songs()
-	use_level(current_level)
+	use_level(current_level, true)
 
 func save_custom_songs() -> void:
 	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)

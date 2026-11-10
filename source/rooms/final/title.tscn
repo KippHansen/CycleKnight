@@ -4,13 +4,14 @@
 [ext_resource type="Script" uid="uid://bk8uydvbutgeq" path="res://source/gameplay/handlers/level_config.gd" id="1_o5dsx"]
 [ext_resource type="Script" uid="uid://b1fblerm35yp5" path="res://source/gameplay/objects/options_button.gd" id="1_r0u52"]
 [ext_resource type="AudioStream" uid="uid://cy86svo2li7so" path="res://assets/audio/music/toby fox - UNDERTALE Soundtrack - 34 Memory.mp3" id="2_cnvhh"]
-[ext_resource type="Script" uid="uid://c8gc6lrp303s0" path="res://source/rooms/final/new_game.gd" id="3_cnvhh"]
+[ext_resource type="Script" uid="uid://c8gc6lrp303s0" path="res://source/gameplay/objects/new_game.gd" id="3_cnvhh"]
 
 [node name="title" type="Node2D" unique_id=1039050851]
 script = ExtResource("1_o5dsx")
 level_id = "title"
 game_song = ExtResource("2_cnvhh")
 game_bpm = 80.0
+first_beat_offset = 0.5
 
 [node name="background" type="ColorRect" parent="." unique_id=1472834071]
 offset_right = 640.0

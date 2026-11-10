@@ -5,4 +5,5 @@ extends Node2D
 @export var game_song: AudioStream
 @export var game_bpm := 120.0
 @export var beats_per_measure := 4
+@export var first_beat_offset := 0.0
 @export var allow_custom_song := false

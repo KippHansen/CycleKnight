@@ -22,7 +22,7 @@ extends Node
 
 
 func _ready() -> void:
-	show_room("title")
+	change_room("title", Vector2i.ZERO)
 	Conductor.beat.connect(_on_beat)
 
 # Beat Count Debug
