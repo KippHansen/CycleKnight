@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://3lx8otxkvces"]
+
+[ext_resource type="Script" uid="uid://cmpijwc8jadjq" path="res://source/gameplay/objects/bpm_slider.gd" id="1_v0o3x"]
+
+[node name="BpmSlider" type="HSlider" unique_id=1184238742]
+offset_right = 131.0
+offset_bottom = 16.0
+max_value = 4.0
+value = 2.0
+tick_count = 5
+script = ExtResource("1_v0o3x")
