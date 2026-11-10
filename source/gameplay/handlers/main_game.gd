@@ -23,9 +23,12 @@ extends Node
 
 func _ready() -> void:
 	show_room("title")
-	
+	Conductor.beat.connect(_on_beat)
 
-
+# Beat Count Debug
+func _on_beat(number: int) -> void:
+	var beat_in_measure := posmod(number, Conductor.beats_per_measure) + 1
+	print(beat_in_measure)
 
 func open_menu(menu_id: String) -> Node:
 	var scene := registry.get_menu(menu_id)
@@ -48,10 +51,15 @@ func change_room(room_id: String, spawn_cell: Vector2i) -> void:
 	var scene := registry.get_room(room_id)
 	if scene == null:
 		return
-	$world/entity_root/GridMovement.clear()
+	#$world/entity_root/GridMovement.clear()
 	$world.load_level(scene)
+	var room = $world.load_level(scene)
+	if room is LevelConfig:
+		Conductor.use_level(room)
 	
 
+func new_game() -> void:
+	change_room("tile_map_test", Vector2i.ZERO)
 
 func quit_game() -> void:
 	# $system/SaveManager.save()   # add later if you have saving

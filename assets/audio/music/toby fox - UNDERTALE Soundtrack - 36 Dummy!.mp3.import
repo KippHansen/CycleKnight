@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpxh0p64fiql3"
+path="res://.godot/imported/toby fox - UNDERTALE Soundtrack - 36 Dummy!.mp3-c658f26207d64cd7fa0c5826b8a42ef5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/toby fox - UNDERTALE Soundtrack - 36 Dummy!.mp3"
+dest_files=["res://.godot/imported/toby fox - UNDERTALE Soundtrack - 36 Dummy!.mp3-c658f26207d64cd7fa0c5826b8a42ef5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

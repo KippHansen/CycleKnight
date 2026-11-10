@@ -79,4 +79,69 @@ func detect(stream: AudioStream, seconds := 20.0) -> Dictionary:
 
 
 func _analyze(env: Array[float], hop_s: float) -> Dictionary:
-	return {}
+	var n := env.size()
+	if n < 200:
+		return {"BPM": 0.0, "Offset": 0.0, "Confidence": 0.0}
+	
+	# Remove the average for autocorrelation to measure rhythm
+	var mean := 0.0
+	for v in env: mean += v
+	mean /= n
+	var c: Array[float] = []
+	var variance := 0.0
+	
+	for v in env:
+		c.append(v - mean)
+		variance += (v - mean) * (v - mean)
+	variance /= n
+	
+	var min_lag := int(60.0 / MAX_BPM / hop_s)
+	var max_lag := int(60.0 / MIN_BPM / hop_s)
+	var scores: Array[float] = []
+	scores.resize(max_lag + 2)
+	scores.fill(0.0)
+	
+	var best_lag := min_lag
+	var best_score := -INF
+	
+	for lag in range(min_lag, max_lag + 1):
+		var sum := 0.0
+		for i in n - lag:
+			sum += c[i] * c[i + lag]
+		scores[lag] = sum / (n - lag)
+		if scores[lag] > best_score:
+			best_score - scores[lag]
+			best_lag = lag
+	
+	# Parabolic interpolation
+	var lag_f := float(best_lag)
+	if best_lag > min_lag and best_lag < max_lag:
+		var a := scores[best_lag - 1]
+		var b := scores[best_lag]
+		var d := scores[best_lag + 1]
+		var denom := a - 2.0 * b + d
+		if absf(denom) > 0.00001:
+			lag_f += 0.5 * (a - d) / denom
+	
+	var bpm := 60.0 / (lag_f * hop_s)
+	while bpm < FOLD_MIN: bpm *= 2.0
+	while bpm > FOLD_MAX: bpm /= 2.0
+	
+	# Finding where the first beat falls
+	var best_phase := 0
+	var best_phase_sum := -INF
+	for phase in int(lag_f):
+		var sum := 0.0
+		var pos := float(phase)
+		while int(pos) < n:
+			sum += env[int(pos)]
+			pos += lag_f
+		if sum > best_phase_sum:
+			best_phase_sum = sum
+			best_phase = phase
+	
+	return {
+		"BPM": bpm,
+		"Offset": best_phase * hop_s,
+		"Confidence": clampf(best_score / maxf(variance, 0.000001), 0.0, 1.0),
+	}

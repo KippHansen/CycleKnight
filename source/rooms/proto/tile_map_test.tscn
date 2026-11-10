@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://ullq7wgcijsi"]
 
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="1_b0fju"]
+[ext_resource type="Script" uid="uid://bk8uydvbutgeq" path="res://source/gameplay/handlers/level_config.gd" id="1_y51bk"]
+[ext_resource type="AudioStream" uid="uid://dpxh0p64fiql3" path="res://assets/audio/music/toby fox - UNDERTALE Soundtrack - 36 Dummy!.mp3" id="2_1vftc"]
 [ext_resource type="Texture2D" uid="uid://tjavypoqpsbh" path="res://assets/tile_maps/ck_sand_water_tm.png" id="2_2wnxa"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/tile_map_dual.gd" id="3_y51bk"]
 [ext_resource type="Texture2D" uid="uid://dgpb1fedqjbpw" path="res://assets/tile_maps/ck_grass_dirt_tm.png" id="4_1vftc"]
@@ -234,6 +236,10 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_gbbfk")
 
 [node name="tile_map_test" type="Node2D" unique_id=1463748522]
+script = ExtResource("1_y51bk")
+level_id = "tile_map_test"
+game_song = ExtResource("2_1vftc")
+game_bpm = 125.0
 
 [node name="sand_layer" type="TileMapLayer" parent="." unique_id=1369317195]
 material = ExtResource("1_b0fju")

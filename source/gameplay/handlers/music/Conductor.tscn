@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bsaif434mao0v"]
+
+[ext_resource type="Script" uid="uid://d2ekgdhioo48h" path="res://source/gameplay/handlers/music/conductor.gd" id="1_l68th"]
+[ext_resource type="Script" uid="uid://bcdh2tgpotq5p" path="res://source/gameplay/handlers/music/bpm_detector.gd" id="2_l68th"]
+
+[node name="Conductor" type="Node" unique_id=408981436]
+script = ExtResource("1_l68th")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=585361958]
+bus = &"Music"
+
+[node name="BPMDetector" type="Node" parent="." unique_id=1683492160]
+script = ExtResource("2_l68th")

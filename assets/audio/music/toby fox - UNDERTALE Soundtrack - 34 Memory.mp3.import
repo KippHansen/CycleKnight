@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cy86svo2li7so"
+path="res://.godot/imported/toby fox - UNDERTALE Soundtrack - 34 Memory.mp3-29fddf885e3716cc6a879d68c0516a53.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/toby fox - UNDERTALE Soundtrack - 34 Memory.mp3"
+dest_files=["res://.godot/imported/toby fox - UNDERTALE Soundtrack - 34 Memory.mp3-29fddf885e3716cc6a879d68c0516a53.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
